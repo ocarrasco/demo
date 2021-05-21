@@ -1,0 +1,45 @@
+<style>
+	table#tblDailyCalendar td.rowspan {
+		vertical-align : middle !important;
+		text-align:center;
+	}
+
+	table#tblDailyCalendar td.disabled {
+		background-color: #f1f1f1;
+	}
+
+	table#tblDailyCalendar tbody:not(:first-child) {
+		border-top: none;
+	}
+
+	table#tblDailyCalendar tbody td {
+		height: 22px;
+	}
+</style>
+
+<table id="tblDailyCalendar" class="table table-bordered">
+	<colgroup>
+		<col style="width:12%">
+		<col style="width:38%">
+		<col style="width:12%">
+		<col style="width:38%">
+	</colgroup>
+	<tbody ng-repeat="slot in hours">
+		<tr>
+			<td rowspan="4" class="rowspan" ng-class="{ 'disabled' : !slot.morning.enabled }">
+				<span ng-show="slot.morning.hour < 13">{{ slot.morning.hour | hourFormat }}</span>
+				<span ng-show="slot.morning.hour > 12">---</span>
+			</td>
+			<td ng-click="checkAppointment(slot.morning.hour, 0)" ng-class="{ 'disabled': !slot.morning.mins[0].enabled }"></td>
+			<td rowspan="4" class="rowspan" ng-class="{ 'disabled' : !slot.afternoon.enabled }">
+				<span ng-show="slot.afternoon.hour < 24">{{ slot.afternoon.hour | hourFormat }}</span>
+				<span ng-show="slot.afternoon.hour > 23">---</span>
+			</td>
+			<td ng-click="checkAppointment(slot.afternoon.hour, 0)" ng-class="{ 'disabled': !slot.afternoon.mins[0].enabled }"></td>
+		</tr>
+		<tr ng-repeat="min in slot.morning.mins track by $index" ng-if="$index > 0">
+			<td ng-class="{ 'disabled' : !slot.morning.mins[$index].enabled }" ng-click="checkAppointment(slot.morning.hour, min.time)"></td>
+			<td ng-class="{ 'disabled' : !slot.afternoon.mins[$index].enabled }" ng-click="checkAppointment(slot.afternoon.hour, min.time)"></td>
+		</tr>
+	</tbody>
+</table>

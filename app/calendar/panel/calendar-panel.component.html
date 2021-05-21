@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="row" style="margin-top: 10px; padding-top: 4px; padding-bottom: 14px">
+			<div class="col-xs-3">
+				<strong style="font-size: 20px;" ng-show="$ctrl.view == 'MONTH'">
+					<span>{{ $ctrl.period.month | translateMonth  }}</span> 
+					<span>{{ $ctrl.period.year }}</span>
+				</strong>
+				<strong style="font-size: 20px;" ng-show="$ctrl.view == 'DAILY'">
+					<span>{{ $ctrl.period.day | translateDay }}</span>
+					<span>{{ $ctrl.period.date }}</span>
+					<span>{{ $ctrl.period.month | translateMonth }}</span> 
+					<span>{{ $ctrl.period.year }}</span>
+				</strong>
+			</div>
+			<div class="col-xs-2 text-center">
+				<div class="btn-group" role="group">
+					<button ng-click="previous()" class="btn btn-default btn-sm">
+						<i class="glyphicon glyphicon-chevron-left"></i>
+					</button>
+					<button ng-click="next()" class="btn btn-default btn-sm">
+						<i class="glyphicon glyphicon-chevron-right"></i>
+					</button>
+				</div>
+			</div>
+			<div class="col-xs-1">
+				<button ng-click="today()" class="btn btn-default btn-sm">Today</button>
+			</div>
+			<div class="col-xs-4 text-center">
+				<select ng-model="$ctrl.selectedProfessional"
+				ng-options="professional.id as professional.name for professional in $ctrl.professionals track by $id"></select>
+			</div>
+			<div class="col-xs-2 text-right">
+				<div class="btn-group" role="group">
+					<button ng-click="changeView('MONTH')"  ng-disabled="$ctrl.view == 'MONTH'" 
+						class="btn btn-default btn-sm">Month</button>
+					<button 
+						ng-click="changeView('WEEK')" 
+						ng-disabled="$ctrl.view == 'WEEK'" 
+						class="btn btn-default btn-sm">Week</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>

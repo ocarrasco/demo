@@ -1,0 +1,62 @@
+<style>
+
+#tblCalendar thead {
+	background-color: #ADC4E0;
+	color: #fff;
+	font-weight: bold;
+}
+
+#tblCalendar thead tr {
+	height: 40px;
+}
+
+#tblCalendar tr th, #tblCalendar tr td {
+	text-align: center;
+	width: 14.2858%;
+}
+
+#tblCalendar tbody td.day {
+	height: 60px;
+}
+
+#tblCalendar tbody tr td.today {
+	background-color: #f8f8f8;
+}
+
+#tblCalendar td div.round {
+	background-color: #7972CD;
+	padding-top: 2px;
+	color: #fff;
+}
+
+</style>
+
+<div class="row">
+	<div class="col-xs-12">
+		<table id="tblCalendar" class="table table-bordered">
+			<thead>
+				<tr>
+					<td>Monday</td>
+					<td>Tuesday</td>
+					<td>Wednesday</td>
+					<td>Thursday</td>
+					<td>Friday</td>
+					<td>Saturday</td>
+					<td>Sunday</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="week" ng-repeat="week in weeks track by $index">
+					<td ng-repeat="day in week" class="day" ng-click="showDailyCalendar(day.number)" ng-class="day.aggregatedClasses">						
+						<div ng-show="day.enabled" class="row">
+							<div class="col-xs-11 text-right day-number">{{ day.number }}</div>
+						</div>
+						<div ng-show="day.count" class="row">
+							<div class="col-xs-offset-2 col-xs-4 round">{{ day.count }}</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

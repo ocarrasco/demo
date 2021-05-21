@@ -1,0 +1,76 @@
+{
+  "professionals": [{
+    "id": 1,
+    "name": "Chef 1",
+    "menu": [{
+      "id": "1",
+      "name": "Vegetarian",
+      "timespan": 30
+    }, {
+      "id": "2",
+      "name": "Sushi",
+      "timespan": 60
+    }]
+  }, {
+    "id": "2",
+    "name": "Chef 2",
+    "menu": [{
+      "id": 10,
+      "name": "Hot Rolls",
+      "timespan": 45
+    }, {
+      "id": 11,
+      "name": "Sandwiches",
+      "timespan": 15
+    }]
+  }],
+  "availability": {
+    "days": [{
+      "dayOfWeek": "MONDAY",
+      "enabled": true,
+      "periods": [{
+        "enabled": true,
+        "type": "MORNING",
+        "fromTime": "10:00",
+        "toTime": "13:00"
+      }, {
+        "enabled": true,
+        "type": "AFTERNOON",
+        "fromTime": "14:00",
+        "toTime": "17:00"
+      }]
+    }, {
+      "dayOfWeek": "TUESDAY",
+      "enabled": true,
+      "periods": [{
+        "enabled": true,
+        "type": "MORNING",
+        "fromTime": "10:00",
+        "toTime": "13:00"
+      }, {
+        "enabled": true,
+        "type": "AFTERNOON",
+        "fromTime": "15:00",
+        "toTime": "19:00"
+      }]
+    }, {
+      "dayOfWeek": "WEDNESDAY",
+      "enabled": true,
+      "periods": [{
+        "enabled": true,
+        "type": "AFTERNOON",
+        "fromTime": "14:00",
+        "toTime": "19:00"
+      }]
+    }, {
+      "dayOfWeek": "FRIDAY",
+      "enabled": true,
+      "periods": [{
+        "enabled": true,
+        "type": "MORNING",
+        "fromTime": "8:00",
+        "toTime": "13:00"
+      }]
+    }]
+  }
+}

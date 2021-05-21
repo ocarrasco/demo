@@ -1,0 +1,15 @@
+<div class="container" ng-hide="loading">
+
+	<calendar-panel view="selectedView" period="period"
+		selected-professional="selectedProfessional" 
+		professionals="branch.professionals"></calendar-panel>
+
+	<monthly-calendar ng-show="selectedView == 'MONTH'" view="selectedView" period="period"></monthly-calendar>
+
+	<daily-calendar 
+		ng-show="selectedView == 'DAILY'" view="selectedView" 
+		period="period" branch="branch" selected-professional="selectedProfessional"></daily-calendar>
+
+	<div ng-show="selectedView == 'WEEK'"></div>
+
+</div>

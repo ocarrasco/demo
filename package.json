@@ -1,0 +1,13 @@
+{
+  "name": "demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Just a demo app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

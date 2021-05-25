@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const bodyParser = require('body-parser');
+const uuid = require('uuid');
 
 const port = 3000;
 
@@ -22,6 +22,7 @@ app.post('/api/appointments/:professionalId', (req, res) => {
   let professionalId = req.params.professionalId;
   console.log(`Mock Save data for professional ${professionalId}`);
   console.log(req.body);
+  req.body.id = uuid.v1();
   res.send(req.body);
 });
 
